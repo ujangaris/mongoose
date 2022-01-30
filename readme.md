@@ -40,3 +40,10 @@
 ### 337. Reading from Your Database with Mongoose
 
     pada terminal matikan dan nyalana server saja : nodemon app.js
+
+### 338. Data Validation with Mongoose
+
+    Documentation: https://mongoosejs.com/docs/validation.html
+
+    pada terminal matikan dan nyalana server saja : nodemon app.js
+    maka akan terjadi error dan notif akan muncul sesuai yang kita buat pada require name.
