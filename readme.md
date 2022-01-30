@@ -47,3 +47,14 @@
 
     pada terminal matikan dan nyalana server saja : nodemon app.js
     maka akan terjadi error dan notif akan muncul sesuai yang kita buat pada require name.
+
+### 339. Updatingend Deleting Data Using Mongoose
+
+    Documentation: https://mongoosejs.com/docs/queries.html
+    pada terminal matikan dan nyalana server saja : nodemon app.js
+    pada terminal baru coba masuk ke:
+        mongo
+        use fruitsDB
+        show collections
+        db.people.find()
+         maka data sudah terhapus.
