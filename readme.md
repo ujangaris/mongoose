@@ -36,3 +36,7 @@
         { "_id" : ObjectId("61f635f12068ba64f70b51c2"), "name" : "Kiwi", "review" : "The best fruit!", "__v" : 0 }
         { "_id" : ObjectId("61f635f12068ba64f70b51c3"), "name" : "Orange", "review" : "Too sour for me", "__v" : 0 }
         { "_id" : ObjectId("61f635f12068ba64f70b51c4"), "name" : "Banana", "review" : "Weird texture", "__v" : 0 }
+
+### 337. Reading from Your Database with Mongoose
+
+    pada terminal matikan dan nyalana server saja : nodemon app.js
