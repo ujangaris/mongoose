@@ -68,3 +68,32 @@
         { "_id" : ObjectId("61f65c3e9c74f1f4a099c5d1"), "name" : "Amy", "age" : 12, "favouriteFruit" : { "name" : "Pineapple", "review" : "Great fruit.", "_id" : ObjectId("61f65c3e9c74f1f4a099c5d0") }, "__v" : 0 }
 
         dapat dilihat data person terhubung dengan fruit
+
+### 340. Establishing Relationships and Embededing Documents Using Mongoose part 2
+
+    pada terminal baru :
+        use fruitsDB
+        switched to db fruitsDB
+        db.people.find().pretty()
+        {
+                "_id" : ObjectId("61f65deca510331dc0e849ee"),
+                "name" : "John",
+                "age" : 34,
+                "__v" : 0,
+                "favouriteFruit" : {
+                        "name" : "Mango",
+                        "review" : "Best fruit.",
+                        "_id" : ObjectId("61f65ee2f721c7297af1d316")
+                }
+        }
+        {
+                "_id" : ObjectId("61f65e3d1f409a45e072f900"),
+                "name" : "Amy",
+                "age" : 34,
+                "favouriteFruit" : {
+                        "name" : "Pineapple",
+                        "review" : "Decent fruit.",
+                        "_id" : ObjectId("61f65e3d1f409a45e072f8ff")
+                },
+                "__v" : 0
+        }
