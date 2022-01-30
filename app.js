@@ -31,14 +31,23 @@ const fruit = new Fruit({
 const personSchema = new mongoose.Schema({
   name: String,
   age: Number,
+  favouriteFruit: fruitSchema,
 });
 
 const Person = mongoose.model('Person', personSchema);
-const person = new Person({
-  name: 'John',
-  age: 37,
+
+const pineapple = new Fruit({
+  name: 'Pineapple',
+  score: 9,
+  review: 'Great fruit.',
 });
-// person.save();
+pineapple.save();
+const person = new Person({
+  name: 'Amy',
+  age: 12,
+  favouriteFruit: pineapple,
+});
+person.save();
 
 // Fruit.insertMany([kiwi, orange, banana], function (err) {
 //   if (err) {

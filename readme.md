@@ -58,3 +58,13 @@
         show collections
         db.people.find()
          maka data sudah terhapus.
+
+### 340. Establishing Relationships and Embededing Documents Using Mongoose part 1
+
+    pada terminal baru :
+        use fruitsDB
+        switched to db fruitsDB
+        db.people.find()
+        { "_id" : ObjectId("61f65c3e9c74f1f4a099c5d1"), "name" : "Amy", "age" : 12, "favouriteFruit" : { "name" : "Pineapple", "review" : "Great fruit.", "_id" : ObjectId("61f65c3e9c74f1f4a099c5d0") }, "__v" : 0 }
+
+        dapat dilihat data person terhubung dengan fruit
