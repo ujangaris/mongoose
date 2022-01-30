@@ -1,71 +1,26 @@
 // jshint esversion:6
 
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
+const mongoose = require('mongoose');
 
-// Connection URL
-const url = 'mongodb://localhost:27017';
-
-// Database Name
-const dbName = 'fruitsDB';
-
-// Create a new MongoClient
-// Getting error (node:8640) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option {useUnifiedTopology: true} to the MongoClient constructor.
-// Even though the console told me exactly what to do I decided to look it up online -- https://df.tips/t/topic/973/2
-const client = new MongoClient(url, { useUnifiedTopology: true });
-
-// Use connect method to connect to the Server
-client.connect(function (err) {
-  assert.equal(null, err);
-  console.log('Connected successfully to server');
-
-  const db = client.db(dbName);
-
-  // After adding documents this line of code gets added to client.connect
-  // insertDocuments(db, function () {
-  //   client.close();
-  // });
-
-  // client.close();
-
-  // Adding code to find all the documents after they have been Inserted
-  findDocuments(db, function () {
-    client.close();
-  });
+mongoose.connect('mongodb://localhost:27017/fruitsDB', {
+  useNewUrlParser: true,
 });
 
-// CREATE - new Documents
-const insertDocuments = function (db, callback) {
-  // Get the documents collection
-  const collection = db.collection('fruits');
-  // Insert some documents
-  collection.insertMany(
-    [
-      {
-        name: 'Apple',
-        score: 8,
-        review: 'Great fruit!',
-      },
-      {
-        name: 'Orange',
-        score: 6,
-        review: 'Kind of sour.',
-      },
-      {
-        name: 'Banana',
-        score: 4,
-        review: 'Very sandy',
-      },
-    ],
-    function (err, result) {
-      assert.equal(err, null);
-      assert.equal(3, result.result.n);
-      assert.equal(3, result.ops.length);
-      console.log('Inserted 3 documents into the collection');
-      callback(result);
-    }
-  );
-};
+const fruitSchema = new mongoose.Schema({
+  name: String,
+  rating: Number,
+  review: String,
+});
+
+const Fruit = mongoose.model('Fruit', fruitSchema);
+
+const fruit = new Fruit({
+  name: 'Apple',
+  rating: 7,
+  review: 'Pretty solid as a fruit.',
+});
+
+fruit.save();
 
 // READ - Find all Documents
 const findDocuments = function (db, callback) {
